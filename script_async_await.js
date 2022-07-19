@@ -15,7 +15,18 @@ let stocks = {
     Liquid: ["water", "ice"]
 }
 
-let is_shop_open = true;
+let is_shop_open = false;
+
+function time(ms) {
+    return new Promise ((resolve, reject) =>{
+        if(is_shop_open){
+            setTimeout(resolve, ms);
+        }
+        else{
+            reject(console.log("Shop is closed"))
+        }
+    });
+}
 
 async function kitchen(){
     try{
